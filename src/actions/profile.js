@@ -6,7 +6,7 @@ import { CLEAR_PROFILE, DELETE_ACCOUNT, GET_PROFILE , GET_PROFILES , PROFILE_ERR
 // Get current user profile 
 export const getCurrentProfile = () => async dispatch => {
     try {
-        const res = await axios.get('/profile/me');
+        const res = await axios.get('https://code-interview-backend-updated-mxf1y5nu0.vercel.app/profile/me');
 
         dispatch({
             type: GET_PROFILE,
@@ -30,7 +30,7 @@ export const getProfiles = () => async dispatch => {
     });
 
     try {
-        const res = await axios.get('/profile');
+        const res = await axios.get('https://code-interview-backend-updated-mxf1y5nu0.vercel.app/profile');
 
         dispatch({
             type: GET_PROFILES,
@@ -47,7 +47,7 @@ export const getProfiles = () => async dispatch => {
 // Get profile by id
 export const getProfileById = (userId) => async dispatch => {
     try {
-        const res = await axios.get(`/profile/user/${userId}`);
+        const res = await axios.get(`https://code-interview-backend-updated-mxf1y5nu0.vercel.app/profile/user/${userId}`);
 
         dispatch({
             type: GET_PROFILE,
@@ -64,7 +64,7 @@ export const getProfileById = (userId) => async dispatch => {
 // Get github repos
 export const getGithubRepos = (username) => async dispatch => {
     try {
-        const res = await axios.get(`/profile/github/${username}`);
+        const res = await axios.get(`https://code-interview-backend-updated-mxf1y5nu0.vercel.app/profile/github/${username}`);
 
         dispatch({
             type: GET_REPOS,
@@ -87,7 +87,7 @@ export const createProfile = (formData , history , edit = false) => async dispat
             }
         }
 
-        const res = await axios.post('/profile' , formData , config);
+        const res = await axios.post('https://code-interview-backend-updated-mxf1y5nu0.vercel.app/profile' , formData , config);
 
         dispatch({
             type: GET_PROFILE,
@@ -122,7 +122,7 @@ export const addExperience = (formData , history) => async dispatch => {
             }
         }
 
-        const res = await axios.put('/profile/experience' , formData , config);
+        const res = await axios.put('https://code-interview-backend-updated-mxf1y5nu0.vercel.app/profile/experience' , formData , config);
 
         dispatch({
             type: UPDATE_PROFILE,
@@ -156,7 +156,7 @@ export const addEducation = (formData , history) => async dispatch => {
             }
         }
 
-        const res = await axios.put('/profile/education' , formData , config);
+        const res = await axios.put('https://code-interview-backend-updated-mxf1y5nu0.vercel.app/profile/education' , formData , config);
 
         dispatch({
             type: UPDATE_PROFILE,
@@ -184,7 +184,7 @@ export const addEducation = (formData , history) => async dispatch => {
 // Delete experience 
 export const deleteExperience = (id) => async dispatch => {
     try {
-        const res = await axios.delete(`/profile/experience/${id}`);
+        const res = await axios.delete(`https://code-interview-backend-updated-mxf1y5nu0.vercel.app/profile/experience/${id}`);
 
         dispatch({
             type: UPDATE_PROFILE,
@@ -203,7 +203,7 @@ export const deleteExperience = (id) => async dispatch => {
 // Delete education 
 export const deleteEducation = (id) => async dispatch => {
     try {
-        const res = await axios.delete(`/profile/education/${id}`);
+        const res = await axios.delete(`https://code-interview-backend-updated-mxf1y5nu0.vercel.app/profile/education/${id}`);
 
         dispatch({
             type: UPDATE_PROFILE,
@@ -223,7 +223,7 @@ export const deleteEducation = (id) => async dispatch => {
 export const deleteAccount = () => async dispatch => {
     if ( window.confirm('Are you sure ? This action can NOT be undone :(') ){
         try {
-            await axios.delete('/profile');
+            await axios.delete('https://code-interview-backend-updated-mxf1y5nu0.vercel.app/profile');
 
             dispatch({
                 type: CLEAR_PROFILE
